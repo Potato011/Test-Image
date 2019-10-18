@@ -1,0 +1,68 @@
+function drawBackground() {
+  penRGB(randomNumber(1, 255), randomNumber(1, 255), randomNumber(1, 255), randomNumber(1, 9));
+  penDown();
+  dot(10005);
+  penUp();
+}
+function drawTable(legThickness, topThickness) {
+  //table top y = 300
+  //x bound E (30,230)
+  penUp();
+  penRGB(100, 40, 0, 1);
+  moveTo(30, 500);
+  penWidth(legThickness);
+  penDown();
+  moveForward(200);
+  penWidth(topThickness);
+  turnRight(270);
+  moveForward(10);
+  turnRight(180);
+  moveForward(randomNumber(200, 270));
+  turnLeft(180);
+  moveForward(10);
+  turnLeft(90);
+  penWidth(legThickness);
+  moveForward(139123);
+  penUp();
+}
+function drawMarble () {
+  for (var i = 0; i < randomNumber(1, 26); i++) {
+    moveTo(randomNumber(30, 230), 290);
+    penRGB(randomNumber(0, 255), randomNumber(0, 255), randomNumber(0, 255), 1);
+    penDown();
+    dot(randomNumber(5, 15));
+    penUp();
+  }
+}
+
+drawBackground();
+drawTable(5, 15);
+drawMarble();
+drawAllSunbeams();
+drawWholeSun();
+
+function drawWholeSun() {
+  drawSun();
+}
+function drawAllSunbeams() {
+  for (var i = 0; i < 50; i++) {
+    moveTo(0, 0);
+    turnRight(randomNumber(270, 360));
+    drawSunbeams(75);
+  }
+}
+function drawSun() {
+  penUp();
+  penRGB(randomNumber(225, 250), 255, randomNumber(0, 53), 1);
+  moveTo(randomNumber(0, 60), randomNumber(0, 60));
+  penDown();
+  dot(randomNumber(100, 120));
+  penUp();
+}
+function drawSunbeams(size) {
+  penDown();
+  penWidth(15);
+  penRGB(randomNumber(225, 250), 255, randomNumber(0, 53), 0.25);
+  moveForward(randomNumber(200, 220));
+  penUp();
+}
